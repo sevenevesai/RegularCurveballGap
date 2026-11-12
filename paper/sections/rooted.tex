@@ -1,0 +1,117 @@
+\section{Rooted-class functions and the proof of Theorem~\ref{thm:main}}\label{root:section}
+This section reduces the two isotypic components left open by
+Proposition~\ref{cmp:sectors} to the functions fixed by a point stabilizer,
+and assembles Theorem~\ref{thm:main} and Corollary~\ref{cor:mixing}. Let
+$S_{n-1}$ denote the stabilizer of the vertex $n$ in $S_n$, and let
+\[
+ \mathcal V=\{f\in L^2(\pi):T_\sigma f=f\text{ for every }\sigma\in S_{n-1}\}
+\]
+be the space of rooted-class functions. Its dimension is the number of orbits
+of $S_{n-1}$ on $\Omega$, that is, the number of isomorphism classes of
+$d$-regular graphs on $n$ vertices with one distinguished vertex.
+
+\begin{proposition}[Rooted reduction]\label{root:reduction}
+Put $\mathcal W=U_{(n)}\oplus U_{(n-1,1)}$. Then $\mathcal V\subseteq\mathcal W$,
+$H\mathcal V\subseteq\mathcal V$, and $H$ has the same set of eigenvalues on
+$\mathcal W\cap\mathbf1^\perp$ as on $\mathcal V\cap\mathbf1^\perp$.
+\end{proposition}
+
+\begin{proof}
+The orthogonal projection onto $U_\lambda$ commutes with every $T_\sigma$. So
+each isotypic component of a function $f\in\mathcal V$ is fixed by $S_{n-1}$.
+By the second fact of Section~\ref{sec:setup}, a module isomorphic to a direct
+sum of copies of $S^\lambda$ has no nonzero $S_{n-1}$-fixed vector unless
+$\lambda\in\{(n),(n-1,1)\}$. Hence $f\in\mathcal W$. The inclusion
+$H\mathcal V\subseteq\mathcal V$ follows from \eqref{eq:equivariance}, and the
+constants lie in $\mathcal V$, so $H$ preserves
+$\mathcal V\cap\mathbf1^\perp$.
+
+Every eigenvalue of $H$ on $\mathcal V\cap\mathbf1^\perp$ is an eigenvalue on
+$\mathcal W\cap\mathbf1^\perp$. Conversely, let $\theta$ be an eigenvalue of
+$H$ on $\mathcal W\cap\mathbf1^\perp$. Its eigenspace there is a nonzero
+subspace invariant under every $T_\sigma$, so it contains a submodule
+isomorphic to $S^{(n)}$ or to $S^{(n-1,1)}$. By the same fact this submodule
+contains a nonzero vector fixed by $S_{n-1}$, which is an eigenfunction in
+$\mathcal V\cap\mathbf1^\perp$ with eigenvalue $\theta$.
+\end{proof}
+
+\begin{lemma}[One rooted class]\label{root:single}
+If $d\in\{1,n-2\}$, then every rooted-class function is constant.
+\end{lemma}
+
+\begin{proof}
+Let $d=1$, so that $n$ is even and $\Omega$ is the set of perfect matchings
+of $[n]$. Given two perfect matchings, map the partner of $n$ in the first to
+the partner of $n$ in the second, and the remaining $n/2-1$ edges of the first
+bijectively to those of the second. This defines a permutation fixing $n$
+that carries the first matching to the second. So $S_{n-1}$ is transitive on
+$\Omega$ and $\mathcal V$ consists of constants. The case $d=n-2$ follows
+because complementation commutes with relabeling
+(Lemma~\ref{edg:complement}).
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+Part~(1) is Proposition~\ref{edg:eigen}; the bounds \eqref{eq:upper} follow
+because $g_{xy}$ is a nonzero element of $\mathbf1^\perp$ and
+$\operatorname{gap}(K)=\operatorname{gap}(H)/\binom n2$ with
+$(n-1)/\binom n2=2/n$. Part~(2) is Propositions~\ref{cmp:main}
+and~\ref{cmp:sectors}.
+
+For part~(3), the space $\mathbf1^\perp$ is the orthogonal direct sum of
+$\mathcal W\cap\mathbf1^\perp$ and the components $U_\lambda$ with
+$\lambda\notin\{(n),(n-1,1)\}$, and $H$ preserves each summand. On the latter
+components every eigenvalue is at least $n-1$ by
+Proposition~\ref{cmp:sectors}. On $\mathcal W\cap\mathbf1^\perp$ the least
+eigenvalue is $\mu$ by Proposition~\ref{root:reduction}, with $\mu=\infty$
+when $\mathcal V\cap\mathbf1^\perp=0$, in which case
+$\mathcal W\cap\mathbf1^\perp=0$ as well. Hence
+$\operatorname{gap}(H)\ge\min\{n-1,\mu\}$. Conversely $n-1$ is an eigenvalue
+of $H$ on $\mathbf1^\perp$ by part~(1), and so is $\mu$ when it is finite. This
+proves \eqref{eq:reduction}.
+
+For part~(4), Lemma~\ref{root:single} gives $\mu=\infty$, and
+\eqref{eq:reduction} gives $\operatorname{gap}(H)=n-1$.
+\end{proof}
+
+\begin{remark}[Perfect matchings]\label{root:matchings}
+For $d=1$ every fiber has at most two elements, namely $G$ and $\tau G$ in the
+notation of Lemma~\ref{cmp:swap}, so $R=0$ and $H=\tfrac12L_T$. Diaconis and
+Holmes determine the spectrum of this walk: the
+permutation module on perfect matchings is the sum of the $S^{2\nu}$ over the
+partitions $\nu$ of $n/2$, each once~\cite[Theorem~2]{DH02}, so by
+\eqref{eq:content} the eigenvalue of $H$ on $S^{2\nu}$ is
+$\tfrac12[\binom n2-\operatorname{cont}(2\nu)]$; their Corollary~1 states
+the eigenvalues in the normalization of their kernel. The value $n-1$
+is attained at $2\nu=(n-2,2)$. In general the functions $g_{xy}$ span a
+quotient of the permutation module on pairs,
+$S^{(n)}\oplus S^{(n-1,1)}\oplus S^{(n-2,2)}$. The sum of all $g_{xy}$ and the
+sums $\sum_{y\ne x}g_{xy}$ vanish, because a $d$-regular graph has $nd/2$
+edges and $d$ edges at $x$. These relations span the first two summands, so
+every $g_{xy}$ lies in $U_{(n-2,2)}$, where the bound of
+Proposition~\ref{cmp:sectors} is attained.
+\end{remark}
+
+\begin{proof}[Proof of Corollary~\ref{cor:mixing}]
+The relaxation bound restates \eqref{eq:upper}. Let $g=g_{xy}$ and
+$\theta=1-2/n$, so that $Kg=\theta g$ by Theorem~\ref{thm:main}(1) and
+\eqref{eq:operators}, and $0<\theta<1$. Choose $G$ with
+$|g(G)|=\max|g|>0$. Since $\pi(g)=0$,
+\[
+ \theta^s|g(G)|=|K^sg(G)|
+ =\Bigl|\sum_{G'}\bigl(K^s(G,G')-\pi(G')\bigr)g(G')\Bigr|
+ \le2d(s)\max|g| .
+\]
+So $d(s)\ge\theta^s/2$, and $d(s)\le\varepsilon$ forces
+$s\log(1/\theta)\ge\log(1/(2\varepsilon))$. Since
+$\log(1/\theta)\le(1-\theta)/\theta$ and $\theta/(1-\theta)=n/2-1$, this is
+\eqref{eq:mixlower}; the argument is that
+of~\cite[Theorem~12.5]{LPW17}.
+
+For \eqref{eq:mixupper}, $K$ is symmetric with nonnegative spectrum, so its
+second largest eigenvalue in absolute value is $1-\operatorname{gap}(K)$. The
+standard $L^2$ bound for a symmetric kernel with uniform stationary law gives
+$d(s)\le\tfrac12\sqrt{M-1}\,(1-\operatorname{gap}(K))^s
+\le\tfrac12\sqrt{M-1}\,e^{-2s/n}$, as in the proof
+of~\cite[Corollary~1.2]{S26}. The right side is at most $\varepsilon$ when
+$s\ge\tfrac n2[\log(1/(2\varepsilon))+\tfrac12\log(M-1)]$.
+\end{proof}

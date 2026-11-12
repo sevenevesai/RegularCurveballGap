@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "Please cite the accompanying mathematics note."
+type: software
+title: "The Curveball chain on regular graphs: spectral gap at most 2/n and a comparison with random transpositions"
+authors:
+  - family-names: Short
+    given-names: Mark T.
+    affiliation: SevenevesAI
+version: 1.0.0
+date-released: 2026-11-13
+doi: 10.5281/zenodo.24180369
+url: https://github.com/sevenevesai/RegularCurveballGap
+license: CC-BY-4.0
+preferred-citation:
+  type: article
+  title: "The Curveball chain on regular graphs: spectral gap at most 2/n and a comparison with random transpositions"
+  authors:
+    - family-names: Short
+      given-names: Mark T.
+      affiliation: SevenevesAI
+  year: 2026
+  month: 11
+  doi: 10.5281/zenodo.24180369
+  url: https://github.com/sevenevesai/RegularCurveballGap

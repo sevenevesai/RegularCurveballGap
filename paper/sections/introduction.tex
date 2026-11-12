@@ -1,0 +1,172 @@
+\section{Introduction}\label{sec:introduction}
+Let $n\ge4$ and $1\le d\le n-2$ with $nd$ even. Write $\Omega=\Omega_{n,d}$ for
+the set of simple $d$-regular graphs on the vertex set $[n]=\{1,\ldots,n\}$, put
+$M=|\Omega|$, and let $\pi$ be the uniform probability measure on $\Omega$. A
+\emph{Curveball trade} at a vertex pair $\{x,w\}$ redistributes the vertices
+adjacent to exactly one of $x$ and $w$ between these two endpoints, keeping
+both endpoint degrees and every other adjacency~\cite{SNBFS14,CBS18}.
+
+We use the following precise discrete-time convention, which is that
+of~\cite{S26}. The Curveball chain $K$ chooses an unordered vertex pair
+uniformly and moves to a graph chosen uniformly among those obtainable from
+the current one by a Curveball trade at that pair, the current graph included.
+No additional holding probability is imposed, and time counts trades. For an
+unordered pair $a$, let $E_a$ average a function over the graphs obtainable by
+a trade at $a$, and put
+\begin{equation}\label{eq:operators}
+ h_a=I-E_a,\qquad H=\sum_{a\in\binom{[n]}2}h_a,\qquad
+ K=I-\frac{H}{\binom n2}.
+\end{equation}
+The kernel $K$ is symmetric, and $\operatorname{gap}(K)$ is one minus its
+second largest eigenvalue; $\operatorname{gap}(H)$ is the least eigenvalue of
+$H$ on the orthogonal complement $\mathbf1^\perp$ of the constants in
+$L^2(\pi)$. Thus $\operatorname{gap}(K)=\operatorname{gap}(H)/\binom n2$. The
+symmetric group $S_n$ acts on $\Omega$ by relabeling vertices, and on functions
+by $(T_\sigma f)(G)=f(\sigma^{-1}G)$. Let
+\[
+ L_T=\sum_{a\in\binom{[n]}2}(I-T_a)
+\]
+be the Laplacian of the random-transposition walk on $\Omega$, where $T_a$ is
+the relabeling by the transposition of the two vertices of $a$. For a
+partition $\lambda$ of $n$, let $U_\lambda$ be the $\lambda$-isotypic component
+of $L^2(\pi)$ and let
+$\operatorname{cont}(\lambda)=\sum_i\bigl[\binom{\lambda_i}2-(i-1)\lambda_i\bigr]$
+be the sum of the contents of its cells. A function on $\Omega$ is a
+\emph{rooted-class function} if it is invariant under every relabeling that
+fixes the vertex $n$; such a function depends only on the isomorphism class of
+the graph rooted at $n$. Here and throughout, logarithms are natural.
+
+\begin{theorem}[Regular graphs]\label{thm:main}
+Let $n\ge4$ and $1\le d\le n-2$ with $nd$ even.
+\begin{enumerate}
+\item For every pair $\{x,y\}$, the centered edge indicator
+$g_{xy}=\mathbf1[xy]-d/(n-1)$ is a nonzero function with $Hg_{xy}=(n-1)g_{xy}$.
+Consequently
+\begin{equation}\label{eq:upper}
+ \operatorname{gap}(H)\le n-1,\qquad \operatorname{gap}(K)\le\frac2n .
+\end{equation}
+\item $H\succeq\tfrac12L_T$. Consequently, for every partition $\lambda$ of
+$n$,
+\begin{equation}\label{eq:sector}
+ H\succeq\frac12\Bigl[\binom n2-\operatorname{cont}(\lambda)\Bigr]
+ \quad\text{on }U_\lambda .
+\end{equation}
+The right side is at least $n-1$ for every $\lambda$ other than $(n)$ and
+$(n-1,1)$, and equals $n/2$ for $\lambda=(n-1,1)$.
+\item Let $\mu$ be the least eigenvalue of $H$ on the centered rooted-class
+functions, with $\mu=\infty$ when every rooted-class function is constant.
+Then
+\begin{equation}\label{eq:reduction}
+ \operatorname{gap}(H)=\min\{n-1,\mu\}.
+\end{equation}
+\item If $d\in\{1,n-2\}$, then $\operatorname{gap}(H)=n-1$ and
+$\operatorname{gap}(K)=2/n$.
+\end{enumerate}
+\end{theorem}
+
+Part~(2) is stated for regular degree sequences. For other sequences the
+transposition of two vertices of different degrees does not preserve
+$\Omega_d$, and Remark~\ref{cmp:general} gives the comparison for the pairs of
+equal degree. No lower bound for $\mu$ beyond the universal bound
+$H\succeq2(I-\Pi)$ of~\cite[Theorem~1.1 and Corollary~6.4]{S26} is proved
+here for general $n$ and $d$. For $d=1$ the chain is a lazy version of the
+walk of Diaconis and Holmes on perfect matchings,
+$K=(1-\beta)I+\beta K_{\mathrm{DH}}$ with $\beta=(n-2)/(2(n-1))$, so
+part~(4) for $d=1$ follows from their
+spectrum~\cite[Theorem~2 and Corollary~1]{DH02}
+(Remark~\ref{root:matchings}); for $d=n-2$ it follows from the case $d=1$ by
+complementation.
+
+\begin{theorem}[Small cases]\label{thm:small}
+Let $1\le d\le n-2$ with $nd$ even. If $4\le n\le\NMAX$, or if $n=12$ and
+$d\notin\{5,6\}$, then $\operatorname{gap}(H)=n-1$ and
+$\operatorname{gap}(K)=2/n$ on $\Omega_{n,d}$. The lower bound
+uses the exact integer computation of Section~\ref{cert:section}.
+\end{theorem}
+
+\begin{corollary}[Relaxation and mixing]\label{cor:mixing}
+Let $d(s)=\max_{G\in\Omega}\frac12\sum_{G'\in\Omega}|K^s(G,G')-\pi(G')|$ and
+$t_{\mathrm{mix}}(\varepsilon)=\min\{s\ge0:d(s)\le\varepsilon\}$. Under the
+hypotheses of Theorem~\ref{thm:main}, the relaxation time
+$1/\operatorname{gap}(K)$ is at least $n/2$, and for $0<\varepsilon<1/2$,
+\begin{equation}\label{eq:mixlower}
+ t_{\mathrm{mix}}(\varepsilon)\ge\Bigl(\frac n2-1\Bigr)\log\frac1{2\varepsilon}.
+\end{equation}
+Whenever $\operatorname{gap}(K)=2/n$, in particular under the hypotheses of
+Theorem~\ref{thm:main}(4) or of Theorem~\ref{thm:small}, also
+\begin{equation}\label{eq:mixupper}
+ t_{\mathrm{mix}}(\varepsilon)\le\Bigl\lceil\frac n2
+ \Bigl(\log\frac1{2\varepsilon}+\frac12\log(M-1)\Bigr)\Bigr\rceil .
+\end{equation}
+\end{corollary}
+
+No sharpness of \eqref{eq:mixlower} or \eqref{eq:mixupper} is asserted.
+
+\paragraph{History and significance.}
+Strona, Nappo, Boccacci, Fattorini and San-Miguel-Ayanz~\cite{SNBFS14}
+introduced Curveball trades for binary matrices with fixed margins;
+Verhelst~\cite{Verhelst08} had developed trade-based sampling for the same
+state space. Carstens, Berger and Strona defined undirected
+Curveball trades and proved convergence to the uniform
+distribution~\cite[Theorem~11]{CBS18}; they left theoretical mixing bounds
+open. Carstens and Kleer~\cite{CK18} bounded the relaxation time of the
+Curveball chain for binary matrices relative to that of the switch chain;
+their comparison gives absolute bounds only where switch-chain bounds are
+known, and it does not treat undirected graphs.
+Caputo~\cite{Caputo08} studied binary collision processes with a conservation
+law, of which row trades on binary matrices with fixed column sums are an
+instance, by expanding the square of the generator over triples of particles.
+Fu, Qin and Wang~\cite[Lemma~4.1 and Theorem~5.1]{FQW26} used this expansion
+to prove that the row-trade chain on binary matrices with arbitrary margins
+has gap at least $1/\binom m2$, where $m$ is the number of rows. The
+manuscript~\cite{OAI26}, which has not been peer reviewed and whose main
+mixing theorem has an agent-written Lean formalization upstream, developed
+the pair-fiber operators for undirected graphs.
+For the switch chain on regular graphs, Cooper, Dyer and
+Greenhill~\cite{CDG07,CDG12} proved polynomial mixing, and Tikhomirov and
+Youssef~\cite{TY23} proved sharp Poincar\'e bounds for regular bipartite graphs
+in a specified degree range. For every graphical degree sequence with $M>1$,
+\cite[Theorem~1.1]{S26} gives $\operatorname{gap}(K)\ge2/\binom n2$, with
+equality whenever $M=2$; how much larger the gap is for other
+sequences was left open there. Theorem~\ref{thm:main} shows that on regular
+graphs the gap is at most $2/n$, that $n-1$ is an eigenvalue of $H$ for every
+$n$ and $d$, and that every eigenvalue of $H$ below $n-1$ on $\mathbf1^\perp$,
+if one exists, has a rooted-class eigenfunction. Theorem~\ref{thm:small}
+excludes such eigenvalues for $n\le\NMAX$ and for most degrees at $n=12$. Whether
+$\operatorname{gap}(K)=2/n$ for every regular degree sequence is open
+(Section~\ref{op:section}).
+
+\paragraph{Proof strategy.}
+On a regular fiber the two endpoints of a trade have the same number of
+singleton neighbors, so a trade assigns each singleton to either endpoint with
+probability $1/2$. Summing this identity over pairs gives part~(1). The same
+balance shows that exchanging the labels of the two endpoints is itself a
+trade. Hence every function fixed by $E_a$ is fixed by $T_a$, which gives
+$h_a\succeq\tfrac12(I-T_a)$ and part~(2); the class sum of transpositions acts
+on $U_\lambda$ as the scalar $\operatorname{cont}(\lambda)$, and an elementary
+bound on contents gives the constants. The two components not covered by
+part~(2) are generated by the functions fixed by a point stabilizer, which
+gives part~(3). For Theorem~\ref{thm:small} we compute the action of $H$ on
+rooted-class indicators in rational arithmetic and decide the resulting matrix
+inequality by an integer congruence certificate. The comparison with the random transpositions of
+vertex labels is the new step; the pair-fiber operators and the kernel of $H$
+are taken from~\cite{OAI26,S26}.
+
+\paragraph{Organization.}
+Section~\ref{sec:setup} fixes the operators and the relabeling action.
+Section~\ref{edg:section} proves the eigenvalue identity.
+Section~\ref{cmp:section} proves the comparison with random transpositions and
+the bounds on isotypic components. Section~\ref{root:section} proves the
+reduction to rooted-class functions, Theorem~\ref{thm:main} and
+Corollary~\ref{cor:mixing}. Section~\ref{cert:section} describes the exact
+computation behind Theorem~\ref{thm:small}. Section~\ref{exp:section} locates
+the slack in the expansion of $H^2$ used in~\cite{S26} and shows that it cannot
+be removed term by term. Section~\ref{bin:section} records the corresponding
+statements for binary matrices with equal row sums, where the equality
+corresponding to $\operatorname{gap}(K)=2/n$ fails for some margins with
+equal column sums, and
+Section~\ref{op:section} states open problems. All proof ingredients are
+supplied in the paper, except the exact computations of
+Section~\ref{cert:section}, of Proposition~\ref{exp:obstruction}(2) and of
+the binary-matrix examples of Section~\ref{bin:section}, which are carried
+out by ancillary programs.

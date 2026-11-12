@@ -1,0 +1,52 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,array}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!55!black,citecolor=blue!55!black,urlcolor=blue!55!black]{hyperref}
+\hypersetup{pdftitle={The Curveball chain on regular graphs: spectral gap at most 2/n and a comparison with random transpositions},pdfauthor={Mark T. Short}}
+\numberwithin{equation}{section}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\NMAX}{11}
+\title{The Curveball chain on regular graphs:\\spectral gap at most $2/n$ and a
+comparison with random transpositions}
+\author{Mark T. Short\\[2pt]\small Independent researcher\\\small\url{https://seveneves.ai}}
+\date{November 13, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+For the Curveball chain that performs a uniform trade at a uniformly chosen
+vertex pair of a $d$-regular graph on $n$ vertices, we prove that $1-2/n$ is
+an eigenvalue for every $n$ and $d$, so the spectral gap is at most $2/n$ and
+the relaxation time is at least $n/2$ trades. We prove that the chain
+dominates one half of the random-transposition walk on vertex labels, which
+bounds every eigenvalue outside two isotypic components and shows that the
+gap equals $2/n$ unless a smaller eigenvalue has an eigenfunction depending
+only on the rooted isomorphism class of the graph. The gap equals $2/n$ for
+$d\in\{1,n-2\}$ and, by an exact computer-assisted computation, for every
+regular degree sequence with $n\le\NMAX$; equality for all $n$ and $d$ is
+open.
+\end{abstract}
+\input{sections/introduction}
+\input{sections/setup}
+\input{sections/edges}
+\input{sections/comparison}
+\input{sections/rooted}
+\input{sections/certificate}
+\input{sections/expansion}
+\input{sections/binary}
+\input{sections/open}
+\input{sections/acknowledgments}
+\input{sources/references}
+\end{document}

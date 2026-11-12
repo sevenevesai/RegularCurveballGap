@@ -1,0 +1,112 @@
+\section{Binary matrices with equal row sums}\label{bin:section}
+Curveball trades were introduced for binary matrices with fixed
+margins~\cite{SNBFS14}. This section records the statements of
+Sections~\ref{edg:section} to~\ref{root:section} in that setting, where the
+proofs are the same and the conclusion is different: the comparison leaves
+only the functions invariant under row permutations, and on these the bound
+can fail when the column sums are unequal. Nothing in this section is used
+elsewhere.
+
+Let $m\ge2$ and $k\ge1$, let $1\le r\le k-1$, and let
+$c=(c_1,\ldots,c_k)$ be integers with $0<c_j<m$ and $\sum_jc_j=mr$. Let
+$\Omega_{r,c}$ be the set of $m\times k$ binary matrices with every row sum
+equal to $r$ and column sums $c$, assumed nonempty, with the uniform
+measure. For a pair $a=\{x,w\}$ of rows, the $a$-fiber of a matrix $Z$
+consists of the matrices in $\Omega_{r,c}$ that agree with $Z$ outside rows
+$x$ and $w$. A column is a \emph{singleton} if rows $x$ and $w$ differ in it;
+since the two rows have the same sum, there are $2q$ singletons, $q$ with a
+one in each row, and the fiber is in bijection with the $q$-subsets of the
+singletons. Let $E_a$ average over the $a$-fibers, and put $h_a=I-E_a$,
+$H=\sum_ah_a$ over the $\binom m2$ row pairs, and $K=I-H/\binom m2$. Thus
+$K$ performs a uniform Curveball trade at a uniformly chosen pair of rows.
+The chain is irreducible by Ryser's interchange
+theorem~\cite[Theorem~3.1]{Ryser57}, since an interchange is a trade. The
+group $S_m$ acts by permuting rows, $L_T$ denotes the sum of $I-T_a$ over the
+row transpositions, and a function is \emph{row-symmetric} if it is invariant
+under every row permutation.
+
+\begin{proposition}[Row trades]\label{bin:main}
+In the setting above:
+\begin{enumerate}
+\item for every row $x$ and column $j$, the function $\mathbf1[Z_{xj}=1]-c_j/m$
+is nonzero and is an eigenfunction of $H$ with eigenvalue $m/2$;
+\item $H\succeq\tfrac12L_T$, and $H\succeq\tfrac m2I$ on the orthogonal
+complement of the row-symmetric functions;
+\item $\operatorname{gap}(H)=\min\{m/2,\mu_{\mathrm{sym}}\}$, where
+$\mu_{\mathrm{sym}}$ is the least eigenvalue of $H$ on the centered
+row-symmetric functions, and $\mu_{\mathrm{sym}}=\infty$ when there are none.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(1) As in Lemma~\ref{edg:marginal}, a trade at $\{x,w\}$ gives
+$E_a\mathbf1[Z_{xj}=1]=\tfrac12(\mathbf1[Z_{xj}=1]+\mathbf1[Z_{wj}=1])$, and
+pairs of rows not containing $x$ fix $\mathbf1[Z_{xj}=1]$. Summing over the
+$m-1$ rows $w\ne x$ gives
+\[
+ H\mathbf1[Z_{xj}=1]=\tfrac{m-1}2\mathbf1[Z_{xj}=1]
+ -\tfrac12\bigl(c_j-\mathbf1[Z_{xj}=1]\bigr)
+ =\tfrac m2\mathbf1[Z_{xj}=1]-\tfrac{c_j}2 .
+\]
+By row symmetry the mean of $\mathbf1[Z_{xj}=1]$ is $c_j/m\in(0,1)$, so the
+centered function is nonzero and the claim follows from $H\mathbf1=0$.
+
+(2) Exchanging rows $x$ and $w$ preserves $\Omega_{r,c}$ and replaces the set
+of singletons with a one in row $x$ by its complement, so it is a trade. The
+proof of Proposition~\ref{cmp:main} applies verbatim and gives
+$H\succeq\tfrac12L_T$. On the $\lambda$-isotypic component for a partition
+$\lambda\ne(m)$ of $m$, with $\lambda_1=m-k'$ and $1\le k'\le m-1$, the
+argument of Lemma~\ref{cmp:content} gives
+$\operatorname{cont}(\lambda)\le\binom{m-k'}2+\binom{k'}2-k'$, a convex
+function of $k'$ whose values at $k'=1$ and $k'=m-1$ are
+$\binom{m-1}2-1$ and $\binom{m-1}2-(m-1)$. Hence
+$\binom m2-\operatorname{cont}(\lambda)\ge\binom m2-\binom{m-1}2+1=m$, and
+$H\succeq\tfrac m2I$ on every component other than $U_{(m)}$, which is the
+space of row-symmetric functions.
+
+(3) The space $\mathbf1^\perp$ is the orthogonal sum of the centered
+row-symmetric functions and the components $U_\lambda$ with
+$\lambda\ne(m)$, each invariant under $H$. On the latter the least eigenvalue
+is at least $m/2$ by~(2), and $m/2$ is an eigenvalue on $\mathbf1^\perp$
+by~(1). So the least eigenvalue of $H$ on $\mathbf1^\perp$ is the smaller of
+$m/2$ and $\mu_{\mathrm{sym}}$.
+\end{proof}
+
+For the margins $m=3$, $r=2$, $c=(1,1,2,2)$ the space $\Omega_{r,c}$ has $15$
+elements, and $H$ has the eigenvalue $1<3/2$ with a row-symmetric
+eigenfunction; this is the computation in the proof of
+Proposition~\ref{exp:obstruction}(1), in which the three rows are the
+neighborhoods of the vertices of $T$ outside $T$. So equal row sums alone do
+not give $\operatorname{gap}(H)=m/2$.
+
+Equal column sums do not give it either. For $m=k=4$ and all row and column
+sums equal to $2$, the space has $90$ elements and
+$\mu_{\mathrm{sym}}=4/3<2$. For square matrices with all row and column sums
+equal to $2$, an exact computation of the same kind as in
+Section~\ref{cert:section}, on the classes of matrices under row
+permutations, gives $\mu_{\mathrm{sym}}<m/2$ for $m\in\{4,5,6\}$ and
+$\mu_{\mathrm{sym}}>m/2$ for $m\in\{7,8\}$; for $m=k=6$ and all sums equal to
+$3$ it gives $\mu_{\mathrm{sym}}<3$. The statement corresponding to
+Conjecture~\ref{op:conjecture} is therefore false for binary matrices with
+equal row sums and equal column sums. In the graph setting rows and columns are permuted by the same relabelings,
+so the space $U_{(n)}$ of invariant functions is smaller than the space of
+row-symmetric functions of an adjacency matrix.
+
+The expansion of Section~\ref{exp:section} gives a sufficient condition.
+Disjoint row pairs resample disjoint rows, so their projections commute and
+$D\succeq0$. Let $m\ge3$, and let $\kappa$ be the least eigenvalue, over all triples $T$
+of rows, of $H_T$ on the orthogonal complement of its kernel. Then
+$H_T^2\succeq\kappa H_T$, and the expansion
+$H^2=\sum_TH_T^2-(m-3)H+D$ with $\sum_TH_T=(m-2)H$ gives
+\begin{equation}\label{bin:caputo}
+ \operatorname{gap}(H)\ge(\kappa-1)(m-2)+1 ,
+\end{equation}
+which is Caputo's three-particle bound~\cite[Theorem~3.1]{Caputo08} in the
+present normalization. Fu, Qin and Wang~\cite[Theorem~5.1]{FQW26} prove
+$\kappa\ge1$ for all margins, which gives $\operatorname{gap}(H)\ge1$; the
+example with $m=3$ above attains it. If $\kappa\ge3/2$, then
+\eqref{bin:caputo} and Proposition~\ref{bin:main}(1) give
+$\operatorname{gap}(H)=m/2$. This condition is not necessary: for $m=k=7$
+and all sums equal to $2$, fixing the rows $\{3,4\}$, $\{5,6\}$, $\{5,7\}$,
+$\{6,7\}$, written as their sets of ones, leaves three rows with the column
+sums $(2,2,1,1,0,0,0)$, so $\kappa=1$, while $\mu_{\mathrm{sym}}>7/2$.

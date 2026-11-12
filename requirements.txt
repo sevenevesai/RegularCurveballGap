@@ -1,0 +1,5 @@
+# python-flint: exact matrix products in rooted.py; sympy: bipartite.py.
+numpy==2.1.3
+scipy==1.15.1
+python-flint==0.7.1
+sympy==1.14.0

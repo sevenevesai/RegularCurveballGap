@@ -1,0 +1,68 @@
+\section{Operators and symmetry}\label{sec:setup}
+This section fixes the operator conventions, describes the pair fibers of a
+regular graph, and records the two facts about the symmetric group that the
+later sections use. All operators act on real $L^2(\pi)$. Write $A\succeq B$
+when $A-B$ is self-adjoint and has nonnegative quadratic form, and let
+$\Pi f=\pi(f)\mathbf1$.
+
+\paragraph{Pair fibers.}
+Fix $G\in\Omega$ and a pair $a=\{x,w\}$. A vertex $y\notin a$ is \emph{common}
+if it is adjacent to both $x$ and $w$, and a \emph{singleton} if it is adjacent
+to exactly one of them. Let $S_a(G)$ be the set of singletons. The
+\emph{$a$-fiber} of $G$ consists of the graphs in $\Omega$ that agree with $G$
+on every pair of vertices other than the pairs joining $a$ to $S_a(G)$. These
+are the graphs obtainable from $G$ by a Curveball trade at $a$, and $E_a$ is
+conditional uniform averaging on the $a$-fibers~\cite[Section~2]{S26}. Hence
+$E_a$ and $h_a$ are orthogonal projections, $K$ is symmetric with nonnegative
+spectrum, and \eqref{eq:operators} holds. If $x$ has $c$ common neighbors and
+$q$ singleton neighbors, then $d=c+q+\mathbf1[xw]$, and the same identity
+holds for $w$ with the same $c$. Therefore
+\begin{equation}\label{eq:balance}
+ |S_a(G)|=2q,\qquad q=d-c-\mathbf1[xw],
+\end{equation}
+and each endpoint has exactly $q$ singleton neighbors. A graph in the fiber is
+determined by the set $X\subseteq S_a(G)$ of singletons adjacent to $x$, which
+has $q$ elements, and every $q$-subset occurs: the resulting graph is simple,
+agrees with $G$ away from $a$, and gives each vertex its former degree. The
+fiber is thus in bijection with the $q$-subsets of a $2q$-set.
+
+\paragraph{Kernel.}
+The kernel of $H$ consists of the constants, for every graphical degree
+sequence~\cite[Lemma~6.3]{S26}. In particular $\operatorname{gap}(H)>0$ when
+$M>1$. The set $\Omega$ is nonempty, since it contains a circulant graph. The
+uniform measure is invariant under relabeling of the vertices, and $S_n$ is
+transitive on pairs. So every pair
+is an edge of a uniform element of $\Omega$ with probability
+\begin{equation}\label{eq:density}
+ p=\frac{nd/2}{\binom n2}=\frac d{n-1}\in(0,1),
+\end{equation}
+so $M\ge2$.
+
+\paragraph{Relabeling.}
+For $\sigma\in S_n$, the graph $\sigma G$ has the edges $\sigma(i)\sigma(j)$
+for $ij\in G$. Relabeling preserves $\Omega$ and $\pi$, so $T_\sigma$ is an
+orthogonal representation of $S_n$ on $L^2(\pi)$. Relabeling by $\sigma$ maps
+the $a$-fiber of $G$ onto the $\sigma(a)$-fiber of $\sigma G$. Hence
+\begin{equation}\label{eq:equivariance}
+ T_\sigma E_aT_\sigma^{-1}=E_{\sigma(a)},\qquad T_\sigma H=HT_\sigma .
+\end{equation}
+The irreducible complex representations of $S_n$ are the Specht modules
+$S^\lambda$ indexed by the partitions $\lambda$ of
+$n$~\cite[Theorem~2.4.6]{Sagan01}. They are defined over $\mathbb Q$, so the
+same modules over $\mathbb R$ are the irreducible real representations. The space $L^2(\pi)$ is the orthogonal
+direct sum of its isotypic components $U_\lambda$, and each $U_\lambda$ is
+invariant under $H$ by \eqref{eq:equivariance}. We use two facts.
+\begin{enumerate}
+\item The sum of all transpositions is central in the group algebra and acts
+on $S^\lambda$ as the scalar $\operatorname{cont}(\lambda)$; this is
+Frobenius's formula for the character at a
+transposition~\cite[Lemma~7]{DS81}. Consequently
+\begin{equation}\label{eq:content}
+ L_T=\Bigl[\binom n2-\operatorname{cont}(\lambda)\Bigr]I
+ \quad\text{on }U_\lambda .
+\end{equation}
+\item The permutation representation of $S_n$ on $\mathbb R^n$ is
+$S^{(n)}\oplus S^{(n-1,1)}$. By Frobenius reciprocity, the space of vectors of
+$S^\lambda$ fixed by the stabilizer of the point $n$ has dimension one for
+$\lambda\in\{(n),(n-1,1)\}$ and dimension zero for every other $\lambda$.
+\end{enumerate}

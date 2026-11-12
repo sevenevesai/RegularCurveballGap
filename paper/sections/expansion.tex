@@ -1,0 +1,109 @@
+\section{The expansion of \texorpdfstring{$H^2$}{H squared}}\label{exp:section}
+The universal bound $H\succeq2(I-\Pi)$ of~\cite{S26} comes from an expansion
+of $H^2$ into a triple term and a disjoint-pair term, each bounded
+separately. The expansion is due to
+Caputo~\cite[Equations~(1.13) to~(1.15)]{Caputo08} and was applied to pair
+fibers of graphs in~\cite[Proposition~7.1]{OAI26}. This section computes both terms on the edge indicators of a
+regular fiber, where $S$ and $D$ both equal $\tfrac{n-2}2H$, against the
+universal bounds $S\succeq0$ and $D\succeq H$, and shows that
+on regular graphs the two terms cannot be bounded separately with constants
+that add up to the conjectured gap. Nothing here is used in the proofs of
+Theorems~\ref{thm:main} and~\ref{thm:small}.
+
+For a vertex triple $T$ let $H_T$ be the sum of $h_a$ over the three pairs
+$a\subset T$, and let $D$ be the sum of the products $h_ah_b$ over ordered
+pairs $(a,b)$ of disjoint vertex pairs. Put $S=\sum_T(H_T^2-H_T)$. Since
+$\sum_TH_T=(n-2)H$, the expansion~\cite[Equation~(6.1)]{S26} reads
+\begin{equation}\label{exp:expansion}
+ H^2=H+S+D .
+\end{equation}
+For every graphical degree sequence, $S\succeq0$ and
+$D\succeq H$~\cite[Lemma~A.4 and Proposition~6.1]{S26}, which gives
+$H^2\succeq2H$. Because $H\succeq0$ has kernel $\mathbb R\mathbf1$, the
+equality $\operatorname{gap}(H)=n-1$ on a regular fiber is equivalent to
+$H^2\succeq(n-1)H$, that is, to
+\begin{equation}\label{exp:target}
+ S+D\succeq(n-2)H .
+\end{equation}
+
+\begin{proposition}[Edge functions]\label{exp:edges}
+Let $\mathcal E$ be the span of $\mathbf1$ and the edge indicators
+$\mathbf1[e]$. Each $h_a$ preserves $\mathcal E$ and equals
+$\tfrac12(I-T_a)$ there. On $\mathcal E$,
+\[
+ H=\tfrac12L_T,\qquad H_T^2=\tfrac32H_T\ \text{ for every triple }T,\qquad
+ S=\frac{n-2}2H,
+\]
+and $Dg_{xy}=\tfrac{n-2}2Hg_{xy}=\tfrac{(n-1)(n-2)}2g_{xy}$ for every pair
+$\{x,y\}$.
+\end{proposition}
+
+\begin{proof}
+For $a=\{x,w\}$, the relabeling $T_a$ exchanges $\mathbf1[xy]$ and
+$\mathbf1[wy]$ for $y\notin a$ and fixes $\mathbf1[e]$ when $e=a$ or
+$e\cap a=\varnothing$. Lemma~\ref{edg:marginal} therefore gives
+$E_a=\tfrac12(I+T_a)$ on $\mathcal E$, which proves the first assertion and
+$H=\tfrac12L_T$. On $\mathcal E$ we then have
+$H_T=\tfrac12(3I-C_T)$, where $C_T$ is the sum of the three transpositions of
+the vertices of $T$. Under the group of permutations of $T$, the space $\mathcal E$ is a quotient
+of the sum of a trivial representation and the permutation representation on
+pairs. The orbits on pairs have size one or three, and
+an orbit of size three carries the permutation representation on three
+points, which is the sum of the trivial and the two-dimensional irreducible
+representation. On these $C_T$ acts as $3$ and as $0$, and the sign
+representation does not occur. So $H_T$ has eigenvalues $0$ and $3/2$ on
+$\mathcal E$, and $H_T^2=\tfrac32H_T$. Summing $H_T^2-H_T=\tfrac12H_T$ over
+$T$ gives $S=\tfrac{n-2}2H$. Finally \eqref{exp:expansion} and
+Proposition~\ref{edg:eigen} give
+$Dg_{xy}=[(n-1)^2-(n-1)-\tfrac{(n-1)(n-2)}2]g_{xy}$.
+\end{proof}
+
+At the functions $g_{xy}$ the two sides of \eqref{exp:target} are equal, and
+$S$ and $D$ contribute equally. The next proposition shows that neither
+$S\succeq\tfrac{n-2}2H$ nor any other pair of separate bounds summing to
+\eqref{exp:target} holds in general.
+
+\begin{proposition}[Obstruction to separate bounds]\label{exp:obstruction}
+\begin{enumerate}
+\item On $\Omega_{7,2}$ and $T=\{1,2,3\}$, the operator $H_T$ has the
+eigenvalue $1$. So the inequality $H_T^2\succeq H_T$
+of~\cite[Lemma~A.4]{S26} is attained on a regular fiber, and
+$H_T^2\succeq\tfrac32H_T$ fails.
+\item On $\Omega_{8,3}$ the number $t$ of triangles of a graph satisfies
+\[
+ \frac{\langle t,St\rangle}{\langle t,Ht\rangle}=\frac{2314}{835}<3 .
+\]
+Consequently there are no constants $\alpha,\beta$ with $\alpha+\beta=6$,
+$S\succeq\alpha H$ and $D\succeq\beta H$ on $\Omega_{8,3}$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+For~(1), let $G$ be the $7$-cycle with the cyclic vertex order
+$(1,4,2,5,6,3,7)$. No pair inside $T$ is an edge, the vertices $4$ and $7$
+each have two neighbors in $T$, and the vertices $5$ and $6$ each have one.
+Trades at the pairs inside $T$ preserve these properties and the edge
+$\{5,6\}$. The set $\mathcal C$ of graphs reachable from $G$ by such trades
+is the set of all assignments of neighborhoods in $T$ to the vertices
+$4,5,6,7$ of these sizes in which every vertex of $T$ has degree two; it has
+$15$ elements, and functions supported on $\mathcal C$ form an invariant
+subspace of $H_T$. Let $c_0$ be the set of graphs in $\mathcal C$ in which
+$5$ and $6$ have the same neighbor in $T$, let $c_1$ be the set in which the
+neighbor of $5$ in $T$ is adjacent to $4$ and that of $6$ is not, and let
+$c_2$ be the set in which the neighbor of $5$ in $T$ is adjacent to $7$ and
+that of $6$ is not. These sets have $3$, $6$ and $6$ elements and partition
+$\mathcal C$, and they are invariant under the permutations of $T$.
+Enumerating the fibers, which have six or two elements, shows that $H_T$
+acts on the column vector of coefficients of
+$(\mathbf1_{c_0},\mathbf1_{c_1},\mathbf1_{c_2})$ by
+\[
+ \begin{pmatrix}4/3&-2/3&-2/3\\-1/3&2/3&-1/3\\-1/3&-1/3&2/3\end{pmatrix},
+\]
+so $f=\mathbf1_{c_1}-\mathbf1_{c_2}$ satisfies $H_Tf=f$. An ancillary program
+confirms this identity on $\mathcal C$ in rational arithmetic.
+Statement~(2) is a finite computation in rational arithmetic, carried out
+by an ancillary program, which evaluates both quadratic forms over the $19{,}355$
+elements of $\Omega_{8,3}$; constants do not contribute, since
+$H\mathbf1=H_T\mathbf1=0$. The displayed ratio forces $\alpha\le2314/835<3$,
+and Proposition~\ref{exp:edges} with $n=8$ forces $\beta\le3$.
+\end{proof}

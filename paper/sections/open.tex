@@ -1,0 +1,53 @@
+\section{Open problems}\label{op:section}
+The equality $\operatorname{gap}(K)=2/n$ is proved here for $d\in\{1,n-2\}$
+and in the cases of Theorem~\ref{thm:small}. It is not proved for any other
+regular degree sequence. For $n=12$ and $d\in\{5,6\}$ there are $7{,}849$
+classes and $83{,}858$ rooted classes; a floating-point computation gives
+$\mu\approx14.62>11$, which is evidence and not a proof.
+
+\begin{conjecture}[Regular Curveball gap]\label{op:conjecture}
+For every $n\ge4$ and $1\le d\le n-2$ with $nd$ even,
+$\operatorname{gap}(H)=n-1$ and $\operatorname{gap}(K)=2/n$ on $\Omega_{n,d}$.
+\end{conjecture}
+
+By Theorem~\ref{thm:main}(3), Conjecture~\ref{op:conjecture} is equivalent to
+$\mu\ge n-1$, an inequality for functions of the rooted isomorphism class. On
+the centered functions of the unrooted isomorphism class, which form
+$U_{(n)}\cap\mathbf1^\perp$, the comparison of Proposition~\ref{cmp:main}
+gives no information, and the only bound proved for general $n$ and $d$ is
+$H\succeq2I$~\cite[Theorem~1.1]{S26}. On $U_{(n-1,1)}$ the proved bound is
+$n/2$. A lower bound for $\mu$ of order $n$ would already show that the
+relaxation time of $K$ on regular graphs has order $n$. By
+\eqref{exp:target} the conjecture is also equivalent to
+$S+D\succeq(n-2)H$, and Proposition~\ref{exp:obstruction} shows that this
+cannot be obtained from separate bounds on $S$ and $D$. The conjecture has the
+form of the statement proved by Caputo, Liggett and
+Richthammer~\cite{CLR10} for the interchange process: the gap of the process
+is attained on a small explicit invariant subspace, here the span of the
+edge indicators. We do not know whether their method applies; conditioning
+on the neighborhood of one vertex leaves the class of regular graphs. A closer
+analog is the Kac walk and its relatives, where the gap is attained at an
+explicit function and is obtained from the three-particle gap by the
+expansion of Section~\ref{exp:section}~\cite{Caputo08}; for regular graphs
+Proposition~\ref{exp:obstruction}(1) shows that the three-vertex operators do
+not have the gap this route requires.
+
+In Table~\ref{cert:table} the computed values of $\mu$ exceed $n-1$ by at
+least $1.2$, and the least ratio $\mu/(n-1)$ is about $1.17$, at $n=8$,
+$d=3$. We do not know whether $\mu-(n-1)$ is bounded below by a positive
+constant, or grows with $n$, over all regular degree sequences.
+
+For a degree sequence with unequal degrees, Remark~\ref{cmp:general} compares
+only the trades at pairs of equal degree with transpositions. No analog of
+Theorem~\ref{thm:main}(1) is known there, and the gap of $H$ can equal
+$2$~\cite[Theorem~1.1]{S26}. For binary matrices with equal row sums,
+Proposition~\ref{bin:main} leaves the row-symmetric functions. The
+margins for which $\mu_{\mathrm{sym}}\ge m/2$ are not characterized; the
+criterion \eqref{bin:caputo} is sufficient and is not necessary.
+
+The bound \eqref{eq:mixupper} loses the factor $\log M$ of the passage from
+the spectral gap to total variation. For $d=1$ the walk is a quotient of the
+random-transposition walk on $S_n$ and mixes in order $n\log n$
+steps~\cite{DS81,DH02}, while \eqref{eq:mixupper} has order $n^2\log n$. An
+entropy or log-Sobolev inequality for $K$ on regular graphs is not proved
+here.

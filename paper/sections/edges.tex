@@ -1,0 +1,73 @@
+\section{Edge indicators}\label{edg:section}
+This section proves that every centered edge indicator is an eigenfunction of
+$H$ with eigenvalue $n-1$. It uses only the balance \eqref{eq:balance} of a
+regular fiber. Section~\ref{root:section} uses the result for the upper bound
+in Theorem~\ref{thm:main}.
+
+\begin{lemma}[Balanced trades]\label{edg:marginal}
+Let $a=\{x,w\}$ and $y\notin a$. Then
+\[
+ E_a\mathbf1[xy]=\tfrac12\bigl(\mathbf1[xy]+\mathbf1[wy]\bigr).
+\]
+If a pair $e$ equals $a$ or is disjoint from $a$, then
+$E_a\mathbf1[e]=\mathbf1[e]$.
+\end{lemma}
+
+\begin{proof}
+Fix an $a$-fiber. If $y$ is common or adjacent to neither endpoint, then
+$\mathbf1[xy]=\mathbf1[wy]$ is constant on the fiber, and both sides agree. If
+$y$ is a singleton, then $\mathbf1[xy]+\mathbf1[wy]=1$ on the fiber. By
+\eqref{eq:balance}, the set of singletons adjacent to $x$ is a uniform
+$q$-subset of the $2q$ singletons, which contains $y$ with probability $1/2$.
+So $E_a\mathbf1[xy]=1/2$ on the fiber. The last assertion holds because a
+trade at $a$ changes only pairs joining $a$ to a singleton.
+\end{proof}
+
+\begin{proposition}[Edge eigenfunctions]\label{edg:eigen}
+For every pair $\{x,y\}$,
+\[
+ H\mathbf1[xy]=(n-1)\mathbf1[xy]-d .
+\]
+With $p=d/(n-1)$, the function $g_{xy}=\mathbf1[xy]-p$ is nonzero, has mean
+zero, and satisfies $Hg_{xy}=(n-1)g_{xy}$.
+\end{proposition}
+
+\begin{proof}
+By Lemma~\ref{edg:marginal}, $h_a\mathbf1[xy]=0$ unless $a$ meets $\{x,y\}$ in
+exactly one vertex. For $w\notin\{x,y\}$ the pairs $\{x,w\}$ and $\{y,w\}$
+contribute
+\[
+ \tfrac12\bigl(\mathbf1[xy]-\mathbf1[wy]\bigr)
+ +\tfrac12\bigl(\mathbf1[xy]-\mathbf1[xw]\bigr).
+\]
+The vertex $y$ has $d-\mathbf1[xy]$ neighbors other than $x$, and $x$ has
+$d-\mathbf1[xy]$ neighbors other than $y$. Summing over the $n-2$ choices of
+$w$ gives
+\[
+ H\mathbf1[xy]=(n-2)\mathbf1[xy]-\bigl(d-\mathbf1[xy]\bigr)
+ =(n-1)\mathbf1[xy]-d .
+\]
+Since $H\mathbf1=0$, it follows that $Hg_{xy}=(n-1)\mathbf1[xy]-d=(n-1)g_{xy}$.
+By \eqref{eq:density}, $g_{xy}$ has mean zero and takes the two values $1-p$
+and $-p$, each with positive probability, so it is nonzero.
+\end{proof}
+
+\begin{lemma}[Complement]\label{edg:complement}
+Complementation $G\mapsto\overline G$ is a bijection from $\Omega_{n,d}$ onto
+$\Omega_{n,n-1-d}$ which maps each $a$-fiber onto an $a$-fiber. Hence the
+operators $H$ on the two spaces are unitarily equivalent by a map that
+commutes with relabeling, and they have the same eigenvalues on rooted-class
+functions.
+\end{lemma}
+
+\begin{proof}
+Let $a=\{x,w\}$. A vertex $y\notin a$ is a singleton for $G$ exactly when it is
+a singleton for $\overline G$, and then it is adjacent in $\overline G$ to the
+endpoint it is not adjacent to in $G$. The two graphs have complementary
+edges on every pair. So two graphs agree off the pairs joining $a$ to the
+singletons exactly when their complements do, and the fibers correspond.
+Composition with the bijection is therefore a unitary map
+$L^2(\Omega_{n,n-1-d})\to L^2(\Omega_{n,d})$ that intertwines the operators
+$E_a$, hence $H$. Complementation commutes with relabeling, so the map
+preserves rooted-class functions.
+\end{proof}

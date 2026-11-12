@@ -1,0 +1,31 @@
+{
+  "title": "The Curveball chain on regular graphs: spectral gap at most 2/n and a comparison with random transpositions",
+  "upload_type": "publication",
+  "publication_type": "preprint",
+  "description": "For the Curveball chain that performs a uniform trade at a uniformly chosen vertex pair of a d-regular graph on n vertices, we prove that 1-2/n is an eigenvalue for every n and d, so the spectral gap is at most 2/n and the relaxation time is at least n/2 trades. We prove that the chain dominates one half of the random-transposition walk on vertex labels, which bounds every eigenvalue outside two isotypic components and shows that the gap equals 2/n unless a smaller eigenvalue has an eigenfunction depending only on the rooted isomorphism class of the graph. The gap equals 2/n for d in {1,n-2} and, by an exact computer-assisted computation, for every regular degree sequence with n <= 11; equality for all n and d is open. The manuscript, its exact verification and the computer-assisted certificates were produced with AI assistance; the release includes written proofs, exact certificates and the ancillary programs.",
+  "creators": [
+    {
+      "name": "Short, Mark T.",
+      "affiliation": "SevenevesAI"
+    }
+  ],
+  "access_right": "open",
+  "license": "cc-by-4.0",
+  "version": "1.0.0",
+  "publication_date": "2026-11-13",
+  "keywords": [
+    "Curveball algorithm",
+    "spectral gap",
+    "regular graphs",
+    "random transpositions",
+    "Markov chains",
+    "computer-assisted proof"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/sevenevesai/RegularCurveballGap",
+      "relation": "isSupplementedBy",
+      "resource_type": "software"
+    }
+  ]
+}

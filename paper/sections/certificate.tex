@@ -1,0 +1,114 @@
+\section{Exact computation for small cases}\label{cert:section}
+This section reduces Theorem~\ref{thm:small} to the positive definiteness of
+one rational matrix for each pair $(n,d)$ and reports the computation. By
+Theorem~\ref{thm:main}(3) it suffices to show $\mu>n-1$, and by
+Lemma~\ref{edg:complement} it suffices to treat $d\le(n-1)/2$. The
+computation is exact; no floating-point quantity enters the proof.
+
+Let $O_1,\ldots,O_r$ be the orbits of $S_{n-1}$ on $\Omega$, with sizes
+$w_1,\ldots,w_r$ and representatives $G_1,\ldots,G_r$. Their indicators form
+a basis of $\mathcal V$. Write $F_a(G)$ for the $a$-fiber of $G$ and define
+the $r\times r$ rational matrix
+\begin{equation}\label{cert:matrix}
+ A_{cc'}=\sum_{a\in\binom{[n]}2}
+ \Bigl(\mathbf1[c=c']-\frac{|F_a(G_c)\cap O_{c'}|}{|F_a(G_c)|}\Bigr).
+\end{equation}
+
+\begin{lemma}[Quotient criterion]\label{cert:criterion}
+For $f=\sum_cf_c\mathbf1_{O_c}\in\mathcal V$, the function $Hf$ takes the
+value $\sum_{c'}A_{cc'}f_{c'}$ on $O_c$. With $W=\operatorname{diag}(w)$ and
+$w=(w_1,\ldots,w_r)^{\mathsf T}$, the matrix
+\begin{equation}\label{cert:B}
+ B=W\bigl(A-(n-1)I\bigr)+\frac nM\,ww^{\mathsf T}
+\end{equation}
+is symmetric, and it is positive definite if and only if $\mu>n-1$.
+\end{lemma}
+
+\begin{proof}
+By definition $Hf(G_c)=\sum_a[f(G_c)-|F_a(G_c)|^{-1}\sum_{G'\in F_a(G_c)}f(G')]$,
+which is the stated value, and $Hf\in\mathcal V$ is constant on $O_c$ by
+Proposition~\ref{root:reduction}. For $f,g\in\mathcal V$ with coordinate
+vectors $f,g\in\mathbb R^r$,
+\[
+ g^{\mathsf T}WAf=M\langle g,Hf\rangle,\qquad
+ g^{\mathsf T}Wf=M\langle g,f\rangle,\qquad w^{\mathsf T}f=M\pi(f).
+\]
+The first form is symmetric because $H$ is self-adjoint, so $B$ is
+symmetric. Write $f=f_0+\pi(f)\mathbf1$ with $\pi(f_0)=0$. Since
+$H\mathbf1=0$,
+\[
+ f^{\mathsf T}Bf
+ =M\bigl[\langle f_0,Hf_0\rangle-(n-1)\langle f_0,f_0\rangle+\pi(f)^2\bigr].
+\]
+This is positive for every $f\ne0$ exactly when
+$\langle f_0,Hf_0\rangle>(n-1)\langle f_0,f_0\rangle$ for every nonzero
+centered $f_0\in\mathcal V$, that is, when $\mu>n-1$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:small}]
+The upper bound is Theorem~\ref{thm:main}(1). For $d\in\{1,n-2\}$ the lower
+bound is Theorem~\ref{thm:main}(4). For $n=5$ and $d=2$ the only graphs are
+the $5$-cycles, which form one rooted class, so $\mu=\infty$ and
+Theorem~\ref{thm:main}(3) gives the lower bound.
+For the remaining pairs with $d\le(n-1)/2$, listed in
+Table~\ref{cert:table}, an ancillary program computes the orbits, the
+matrix \eqref{cert:matrix} and the sizes $w_c$ in integer and rational
+arithmetic. It then exhibits an integer matrix $Q$ such that
+$Q^{\mathsf T}B'Q$ has positive diagonal entries and is strictly diagonally
+dominant, where $B'$ is a positive integer multiple of $B$ with integer
+entries; all entries of the product are computed in integer arithmetic. A
+symmetric strictly diagonally dominant matrix with positive diagonal is
+positive definite by Gershgorin's theorem. Then $Q$ is nonsingular, since
+$Qv=0$ with $v\ne0$ would give $v^{\mathsf T}Q^{\mathsf T}B'Qv=0$, and $B$
+is congruent to a positive definite matrix, hence positive definite.
+Lemma~\ref{cert:criterion} gives $\mu>n-1$, and
+Theorem~\ref{thm:main}(3) gives $\operatorname{gap}(H)=n-1$. The pairs with
+$d>(n-1)/2$ follow from Lemma~\ref{edg:complement}. The matrix $Q$ is an integer diagonal matrix times a rounding of a
+floating-point eigenvector matrix of a diagonal rescaling of $B'$; this
+affects
+only whether a certificate is found, and the verification of the certificate
+uses no floating-point quantity.
+\end{proof}
+
+The program finds the orbits by a search from one graph along Curveball
+trades, which reaches every graph because $\ker H=\mathbb R\mathbf1$, and
+identifies orbits by a canonical form of the rooted graph. It computes
+$w_c=(n-1)!/|\operatorname{Aut}(G_c,n)|$, where $\operatorname{Aut}(G_c,n)$ is
+the group of automorphisms of $G_c$ fixing $n$. As internal checks it
+verifies the detailed-balance identities $w_cA_{cc'}=w_{c'}A_{c'c}$ exactly
+and compares $\sum_cw_c$ with the number $M$ of labeled $d$-regular graphs
+computed by an independent recursion on degree sequences. For at most $64$
+rooted classes it also decides positive definiteness by fraction-free
+Gaussian elimination, with the same result.
+Table~\ref{cert:table} lists the sizes and, for orientation, a floating-point
+value of $\mu$.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrrrr}
+\toprule
+$n$ & $d$ & $M$ & classes & rooted classes & $\mu$\\
+\midrule
+$6$ & $2$ & $70$ & $2$ & $2$ & $7.0000$\\
+$7$ & $2$ & $465$ & $2$ & $3$ & $9.1667$\\
+$8$ & $2$ & $3{,}507$ & $3$ & $4$ & $10.4185$\\
+$8$ & $3$ & $19{,}355$ & $6$ & $11$ & $8.2221$\\
+$9$ & $2$ & $30{,}016$ & $4$ & $6$ & $11.5237$\\
+$9$ & $4$ & $1{,}024{,}380$ & $16$ & $50$ & $9.7832$\\
+$10$ & $2$ & $286{,}884$ & $5$ & $8$ & $14.1428$\\
+$10$ & $3$ & $11{,}180{,}820$ & $21$ & $68$ & $12.7077$\\
+$10$ & $4$ & $66{,}462{,}606$ & $60$ & $286$ & $11.4954$\\
+$11$ & $2$ & $3{,}026{,}655$ & $6$ & $11$ & $16.7409$\\
+$11$ & $4$ & $5{,}188{,}453{,}830$ & $266$ & $1{,}918$ & $13.3403$\\
+$12$ & $2$ & $34{,}944{,}085$ & $9$ & $15$ & $18.4146$\\
+$12$ & $3$ & $11{,}555{,}272{,}575$ & $94$ & $510$ & $16.4066$\\
+$12$ & $4$ & $480{,}413{,}921{,}130$ & $1{,}547$ & $14{,}577$ & $15.1666$\\
+\bottomrule
+\end{tabular}
+\caption{The cases of Theorem~\ref{thm:small} with $2\le d\le(n-1)/2$ and
+more than one rooted class; the pair $n=12$, $d=5$ is not covered. Classes are isomorphism classes of $d$-regular
+graphs on $n$ vertices; rooted classes are the orbits of $S_{n-1}$. In every
+row the matrix $B$ of \eqref{cert:B} is positive definite by the exact
+certificate described above. The last column is a floating-point value of $\mu$, rounded to
+four decimals; it is not used in the proof.}\label{cert:table}
+\end{table}
